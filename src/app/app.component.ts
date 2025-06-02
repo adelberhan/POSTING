@@ -4,6 +4,8 @@ import { NavComponent } from './nav/nav.component';
 import { AuthComponent } from './user/auth/auth.component';
 import { SharedModule } from './shared/shared.module';
 import { ModalService } from './service/modal.service';
+import AOS from 'aos';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +15,13 @@ import { ModalService } from './service/modal.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  // constructor(private modalService: ModalService) {}
-  private modalService = inject(ModalService);
+  constructor(private modalService: ModalService) {}
 
   ngOnInit(): void {
-    console.log(this.modalService.visible);
+    // AOS.init({
+    //  duration:1200
+    // })
+
   }
   title = 'clips';
 }
