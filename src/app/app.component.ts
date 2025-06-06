@@ -10,7 +10,7 @@ import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavComponent, AuthComponent, SharedModule],
+  imports: [ NavComponent, AuthComponent, SharedModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

@@ -1,0 +1,17 @@
+<input
+  [type]="type"
+  [formControl]="control"
+  class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+  [placeholder]="placeholder"
+/>
+<ng-container *ngIf="control.touched && control.dirty">
+  <p class="text-red-400" *ngIf="control.errors?.required">
+    User {{ type == "text" ? "Name" : "Email" }} is required.
+  </p>
+  <p *ngIf="control.errors?.minlength" class="text-red-400">
+    Min length is 3 characters for user name.
+  </p>
+  <p *ngIf="control.errors?.email" class="text-red-400">
+    Please enter valid email address
+  </p>
+</ng-container>
