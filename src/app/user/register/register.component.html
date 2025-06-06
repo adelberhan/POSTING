@@ -1,5 +1,5 @@
-<app-alert *ngIf="showAlert" [color]="alertColor" >
-  {{alertMsg}}
+<app-alert *ngIf="showAlert" [color]="alertColor">
+  {{ alertMsg }}
 </app-alert>
 
 <!-- Registration Form -->
@@ -34,17 +34,20 @@
       [type]="'password'"
       [control]="password"
       [placeholder]="'Enter password'"
+      autocomplete="off"
     />
   </div>
   <!-- Confirm Password -->
   <div class="mb-3">
     <label class="inline-block mb-2">Confirm Password</label>
-    <input
-      formControlName="confirm_password"
-      type="password"
-      class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-      placeholder="Confirm Password"
+    <app-input
+      [type]="'password'"
+      [control]="confirm_password"
+      [placeholder]="'Confirm Password'"
+      autocomplete="off"
+      confirmPass="{{validPassword}}"
     />
+
   </div>
   <!-- Phone Number -->
   <div class="mb-3">

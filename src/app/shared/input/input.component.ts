@@ -20,5 +20,7 @@ export class InputComponent {
   @Input() type: string = 'text';
   @Input() placeholder: string = '';
   @Input() mask: string = '';
+  @Input() confirmPass: string = '';
+
 
 }

@@ -20,6 +20,7 @@ export class RegisterComponent {
   showAlert: boolean = false;
   alertColor: string = 'blue';
   alertMsg: string = '';
+  passMsg!: string;
 
   name = new FormControl('', [Validators.required, Validators.minLength(3)]);
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -50,6 +51,13 @@ export class RegisterComponent {
   register() {
     this.alertMsg = 'Please wait! your account is being created...';
     this.showAlert = true;
-    this.alertColor = 'green';
+    this.alertColor = 'blue';
+  }
+
+  get validPassword() {
+    if (this.password.value !== this.confirm_password.value) {
+      return (this.passMsg = 'Passwords do not match');
+    }
+    return
   }
 }

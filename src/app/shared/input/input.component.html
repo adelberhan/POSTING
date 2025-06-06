@@ -1,9 +1,9 @@
-
 <input
   [type]="type"
   [formControl]="control"
   [mask]="mask"
   [dropSpecialCharacters]="false"
+  autocomplete="off"
   class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
   [placeholder]="placeholder"
 />
@@ -25,6 +25,8 @@
     - at least 8 characters <br />- must contain at least 1 uppercase letter, 1
     lowercase letter, and 1 number <br />- Can contain special characters
   </p>
+  } @if(confirmPass) {
+  <p class="text-red-400">{{ confirmPass }}</p>
   } @if(control.errors?.mask) {
   <p class="text-red-400">Please enter a valid phone number.</p>
   }
