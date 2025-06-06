@@ -7,23 +7,37 @@ import {
   Validators,
 } from '@angular/forms';
 import { InputComponent } from '../../shared/input/input.component';
-import { min } from 'rxjs';
+import { AlertComponent } from '../../shared/alert/alert.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, InputComponent],
+  imports: [ReactiveFormsModule, CommonModule, InputComponent, AlertComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
+  showAlert: boolean = false;
+  alertColor: string = 'blue';
+  alertMsg: string = '';
+
   name = new FormControl('', [Validators.required, Validators.minLength(3)]);
   email = new FormControl('', [Validators.required, Validators.email]);
-  age = new FormControl('');
-  password = new FormControl('');
-  confirm_password = new FormControl('');
-  phone_number = new FormControl('');
-
+  age = new FormControl('', [
+    Validators.required,
+    Validators.min(18),
+    Validators.max(100),
+  ]);
+  password = new FormControl('', [
+    Validators.required,
+    Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/),
+  ]);
+  confirm_password = new FormControl('', Validators.required);
+  phone_number = new FormControl('', [
+    Validators.required,
+    Validators.min(11),
+    Validators.max(11),
+  ]);
   registerForm = new FormGroup({
     name: this.name,
     email: this.email,
@@ -32,4 +46,10 @@ export class RegisterComponent {
     confirm_password: this.confirm_password,
     phone_number: this.phone_number,
   });
+
+  register() {
+    this.alertMsg = 'Please wait! your account is being created...';
+    this.showAlert = true;
+    this.alertColor = 'green';
+  }
 }

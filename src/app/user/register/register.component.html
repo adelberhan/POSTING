@@ -1,33 +1,39 @@
+<app-alert *ngIf="showAlert" [color]="alertColor" >
+  {{alertMsg}}
+</app-alert>
+
 <!-- Registration Form -->
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" (ngSubmit)="register()">
   <!-- Name -->
   <div class="mb-3">
     <label class="inline-block mb-2">Name</label>
-    <app-input [control]="name" [placeholder]="'Enter name'"> </app-input>
+    <app-input [control]="name" [placeholder]="'Enter name'" />
   </div>
   <!-- Email -->
   <div class="mb-3">
     <label class="inline-block mb-2">Email</label>
-    <app-input [type]="'email'" [control]="email" [placeholder]="'Enter valid email address'"></app-input>
+    <app-input
+      [type]="'email'"
+      [control]="email"
+      [placeholder]="'Enter valid email address'"
+    />
   </div>
   <!-- Age -->
   <div class="mb-3">
     <label for="age" class="inline-block mb-2">Age</label>
-    <input
-      type="number"
-      id="age"
-      formControlName="age"
-      class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+    <app-input
+      [type]="'number'"
+      [control]="age"
+      [placeholder]="'Enter your age'"
     />
   </div>
   <!-- Password -->
   <div class="mb-3">
     <label class="inline-block mb-2">Password</label>
-    <input
-      formControlName="password"
-      type="password"
-      class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-      placeholder="Password"
+    <app-input
+      [type]="'password'"
+      [control]="password"
+      [placeholder]="'Enter password'"
     />
   </div>
   <!-- Confirm Password -->
@@ -43,16 +49,17 @@
   <!-- Phone Number -->
   <div class="mb-3">
     <label class="inline-block mb-2">Phone Number</label>
-    <input
-      formControlName="phone_number"
-      type="text"
-      class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-      placeholder="Enter Phone Number"
+    <app-input
+      [type]="'text'"
+      mask="(000)000-00000"
+      [control]="phone_number"
+      [placeholder]="'(000) 000-0000'"
     />
   </div>
   <button
     type="submit"
-    class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500"
+    [disabled]="registerForm.invalid"
+    class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-500"
   >
     Submit
   </button>
