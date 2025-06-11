@@ -22,7 +22,7 @@ export class AuthService {
       userDetails.email,
       userDetails.password
     );
-    this.userCollection.doc(userCred.user?.uid).add({
+    this.userCollection.doc(userCred.user?.uid).set({
       name: userDetails.name,
       email: userDetails.email,
       age: userDetails.age,
