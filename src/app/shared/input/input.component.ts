@@ -21,6 +21,7 @@ export class InputComponent {
   @Input() placeholder: string = '';
   @Input() mask: string = '';
   @Input() confirmPass: string = '';
+  @Input() id: string = '';
 
 
 }
