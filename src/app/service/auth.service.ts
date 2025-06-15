@@ -5,14 +5,24 @@ import {
   AngularFirestoreCollection,
 } from '@angular/fire/compat/firestore';
 import { IUser } from '../model/user.model';
+import { delay, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  isAuthenticatedUser$:Observable<boolean>
+  isAuthenticatedUserWithDelay$:Observable<boolean>
   private userCollection: AngularFirestoreCollection<IUser>;
   constructor(private auth: AngularFireAuth, private db: AngularFirestore) {
     this.userCollection = db.collection('users');
+    this.isAuthenticatedUser$= auth.user.pipe(
+      map(user => !!user) // Convert user to boolean
+    )
+    this.isAuthenticatedUserWithDelay$ = this.isAuthenticatedUser$.pipe(
+      delay(2000)
+    )
+
   }
   public async createUser(userDetails: IUser) {
     if (!userDetails.password) {

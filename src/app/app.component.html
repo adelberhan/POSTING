@@ -33,7 +33,7 @@
 </section>
 
 <!-- Main Content -->
-<section class="container mx-auto "   >
+<section class="container mx-auto">
   <h1
     class="uppercase text-center text-4xl grid mt-20 mb-12 items-center gap-8 tracking-widest latest"
   >
@@ -47,7 +47,11 @@
       class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
     >
       <!-- Image -->
-      <img class="card-img-top rounded-tl-2xl w-full" alt="" src="assets/img/1.jpg" />
+      <img
+        class="card-img-top rounded-tl-2xl w-full"
+        alt=""
+        src="assets/img/1.jpg"
+      />
 
       <!-- Shape -->
       <div class="relative">
@@ -84,7 +88,11 @@
       class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
     >
       <!-- Image -->
-      <img class="card-img-top rounded-tl-2xl w-full"  alt="" src="assets/img/2.jpg" />
+      <img
+        class="card-img-top rounded-tl-2xl w-full"
+        alt=""
+        src="assets/img/2.jpg"
+      />
 
       <!-- Shape -->
       <div class="relative">
@@ -121,7 +129,11 @@
       class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
     >
       <!-- Image -->
-      <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/3.jpg" alt="Game Highlighting Clip" />
+      <img
+        class="card-img-top rounded-tl-2xl w-full"
+        src="assets/img/3.jpg"
+        alt="Game Highlighting Clip"
+      />
 
       <!-- Shape -->
       <div class="relative">
@@ -158,7 +170,11 @@
       class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
     >
       <!-- Image -->
-      <img class="card-img-top rounded-tl-2xl w-full" src="../assets/img/1.jpg" alt="Game Highlighting Clip" />
+      <img
+        class="card-img-top rounded-tl-2xl w-full"
+        src="../assets/img/1.jpg"
+        alt="Game Highlighting Clip"
+      />
 
       <!-- Shape -->
       <div class="relative">
@@ -195,7 +211,11 @@
       class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
     >
       <!-- Image -->
-      <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/3.jpg" alt="Game Highlighting Clip" />
+      <img
+        class="card-img-top rounded-tl-2xl w-full"
+        src="assets/img/3.jpg"
+        alt="Game Highlighting Clip"
+      />
 
       <!-- Shape -->
       <div class="relative">
@@ -232,7 +252,11 @@
       class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300"
     >
       <!-- Image -->
-      <img class="card-img-top rounded-tl-2xl w-full" src="assets/img/1.jpg" alt="Game Highlighting Clip" />
+      <img
+        class="card-img-top rounded-tl-2xl w-full"
+        src="assets/img/1.jpg"
+        alt="Game Highlighting Clip"
+      />
 
       <!-- Shape -->
       <div class="relative">
@@ -265,8 +289,7 @@
       </div>
     </a>
   </div>
-
 </section>
 
-<app-auth></app-auth>
+<app-auth *ngIf="!(auth.isAuthenticatedUserWithDelay$ | async)"></app-auth>
 <!-- Auth Modal -->
