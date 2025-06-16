@@ -10,6 +10,7 @@ import { InputComponent } from '../../shared/input/input.component';
 import { AlertComponent } from '../../shared/alert/alert.component';
 import { AuthService } from '../../service/auth.service';
 import { IUser } from '../../model/user.model';
+import { RegisterValidators } from '../validators/register-validatores';
 
 @Component({
   selector: 'app-register',
@@ -51,14 +52,14 @@ export class RegisterComponent {
     password: this.password,
     confirm_password: this.confirm_password,
     phone_number: this.phone_number,
-  });
+  },[RegisterValidators.match('password','confirm_password')]);
 
-  get validPassword() {
-    if (this.password.value !== this.confirm_password.value) {
-      return (this.passMsg = 'Passwords do not match');
-    }
-    return;
-  }
+  // get validPassword() {
+  //   if (this.password.value !== this.confirm_password.value) {
+  //     return (this.passMsg = 'Passwords do not match');
+  //   }
+  //   return;
+  // }
   async register() {
     this.alertMsg = 'Please wait! your account is being created...';
     this.showAlert = true;
